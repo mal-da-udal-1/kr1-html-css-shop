@@ -72,19 +72,16 @@ orderForm.addEventListener('submit', (event) => {
   // Закрываем модальное окно.
   orderDialog.close();
 });
-// ===========================================
-// Кнопка «Наверх»
-// ===========================================
-const scrollTopButton = document.getElementById('scroll-top');
-const scrollContainer = document.querySelector('main');
 
-function toggleScrollTopButton() {
-  scrollTopButton.hidden = scrollContainer.scrollTop <= 300;
-}
+// --- Кнопка прокрутки наверх ---
+const scrollTopButton = document.getElementById('scroll-top-button');
 
-scrollContainer.addEventListener('scroll', toggleScrollTopButton);
-toggleScrollTopButton();
+// Показываем кнопку после прокрутки вниз, прячем наверху страницы.
+window.addEventListener('scroll', () => {
+  scrollTopButton.classList.toggle('is-visible', window.scrollY > 200);
+});
 
+// По клику плавно прокручиваем страницу в самый верх.
 scrollTopButton.addEventListener('click', () => {
-  scrollContainer.scrollTo({ top: 0, behavior: 'smooth' });
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 });
