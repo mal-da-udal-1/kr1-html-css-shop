@@ -44,12 +44,7 @@ html,
 body {
   height: 100%;
   margin: 0;
-}
-
-/* Убираем прокрутку у окна: она уходит во внутренние контейнеры */
-html,
-body {
-  overflow: hidden;
+  overflow: hidden; /* прокрутка уходит во внутренние контейнеры */
 }
 
 body {
@@ -192,6 +187,11 @@ a:focus-visible {
   margin-top: 0;
 }
 
+.advantages-list {
+  padding-left: var(--space-lg);
+  margin: 0;
+}
+
 /* Карточка товара */
 .product-card {
   padding: var(--space-md);
@@ -220,36 +220,43 @@ a:focus-visible {
 
 /* ===================================
    7. Секция популярных товаров —
-      горизонтальная лента
+      заголовок сверху, лента снизу
    =================================== */
+
+/* Сама секция — обычный блок, без flex.
+   Flex применяется только к обёртке .products-row. */
 #popular {
+  max-width: none;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+/* Горизонтальная лента карточек */
+.products-row {
   display: flex;
   flex-wrap: nowrap;
   gap: var(--space-md);
   overflow-x: auto;
-  max-width: none;
-  margin-left: 0;
-  margin-right: 0;
   padding-bottom: var(--space-sm);
   scroll-snap-type: x proximity;
 }
 
-#popular .product-card {
+.products-row .product-card {
   flex: 0 0 280px; /* фиксированная ширина карточки */
   scroll-snap-align: start;
 }
 
-/* Аккуратный скроллбар в ленте (опционально) */
-#popular::-webkit-scrollbar {
+/* Аккуратный скроллбар в ленте */
+.products-row::-webkit-scrollbar {
   height: 8px;
 }
 
-#popular::-webkit-scrollbar-thumb {
+.products-row::-webkit-scrollbar-thumb {
   background-color: var(--color-border);
   border-radius: 4px;
 }
 
-#popular::-webkit-scrollbar-thumb:hover {
+.products-row::-webkit-scrollbar-thumb:hover {
   background-color: var(--color-muted);
 }
 
@@ -329,4 +336,48 @@ a:focus-visible {
   padding: var(--space-md);
   border-left: 4px solid var(--color-success);
   background-color: var(--color-success-bg);
+}
+
+/* ===================================
+   9. Кнопка «Наверх»
+   =================================== */
+.scroll-top {
+  position: fixed;
+  right: var(--space-lg);
+  bottom: var(--space-lg);
+  z-index: 200;
+
+  width: 48px;
+  height: 48px;
+  padding: 0;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 22px;
+  line-height: 1;
+
+  color: var(--color-white);
+  background-color: var(--color-primary);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.15s ease, transform 0.15s ease;
+}
+
+.scroll-top:hover {
+  background-color: var(--color-primary-dark);
+  transform: translateY(-2px);
+}
+
+.scroll-top:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
+}
+
+.scroll-top[hidden] {
+  display: none;
 }
