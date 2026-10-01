@@ -1,353 +1,3 @@
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  line-height: 1.5;
-}
-
-html, body {
-  height: 100%;
-  overflow: hidden; /* вся прокрутка уходит во внутренние контейнеры */
-}
-header {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background-color: var(--color-surface);
-  /* при желании можно добавить тень */
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
-}
-main {
-  overflow-x: auto;
-  overflow-y: auto;
-  height: calc(100vh - var(--header-height));
-  display: flex;
-  flex-direction: column;
-}
-
-footer {
-  overflow-x: auto;
-}
-:root {
-  --header-height: 96px; /* подгоните под реальную высоту */
-}
-#popular {
-  display: flex;
-  flex-wrap: nowrap;
-  gap: var(--space-md);
-  overflow-x: auto;
-  padding-bottom: var(--space-sm);
-  max-width: none; /* снимаем ограничение 1100px, чтобы лента не сжималась */
-}
-
-.product-card {
-  flex: 0 0 280px; /* фиксированная ширина карточки */
-  margin-bottom: 0;
-}
-#popular {
-  max-width: none;
-  margin-left: 0;
-  margin-right: 0;
-}
-
-
-header,
-main,
-footer {
-  padding: 20px;
-}
-
-header {
-  background-color: #f2f2f2;
-}
-
-footer {
-  background-color: #f2f2f2;
-}
-
-section {
-  margin-bottom: 24px;
-}
-
-section h2 {
-  margin-top: 0;
-}
-
-/* 
-  Универсальное правило для всех элементов.
-  border-box делает расчёт размеров более понятным:
-  width включает content, padding и border.
-*/
-* {
-  box-sizing: border-box;
-}
-
-/*
-  Убираем стандартный внешний отступ браузера у body.
-  Без этого вокруг страницы может появиться белая рамка.
-*/
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  line-height: 1.5;
-  color: #222222;
-  background-color: #ffffff;
-}
-
-
-
-/*
-  Задаём внутренние отступы для основных областей страницы.
-  Это делает содержимое визуально отделённым от краёв окна браузера.
-*/
-header,
-main,
-footer {
-  padding: 20px;
-}
-
-/*
-  Оформляем шапку страницы.
-  Пока используется простой светло-серый фон.
-*/
-header {
-  background-color: #f2f2f2;
-}
-
-/*
-  Оформляем подвал страницы тем же фоном,
-  чтобы визуально отделить его от основного содержимого.
-*/
-footer {
-  background-color: #f2f2f2;
-}
-
-/*
-  Ограничиваем ширину содержимого шапки,
-  чтобы оно не растягивалось слишком сильно на широких экранах.
-*/
-.site-header {
-  max-width: 1100px;
-  margin: 0 auto;
-}
-
-/*
-  Оформляем текстовый логотип.
-*/
-.site-logo {
-  font-weight: bold;
-  text-decoration: none;
-  color: #222222;
-}
-
-/*
-  Убираем стандартные отступы и маркеры списка навигации.
-*/
-.site-nav__list {
-  padding: 0;
-  margin: 16px 0 0;
-  list-style: none;
-}
-
-/*
-  Добавляем расстояние между пунктами меню.
-*/
-.site-nav__list li {
-  margin-bottom: 8px;
-}
-
-/*
-  Оформляем ссылки меню.
-*/
-.site-nav__list a {
-  color: #0057b8;
-  text-decoration: none;
-}
-
-/*
-  При наведении мыши подчёркиваем ссылку.
-  Подробно состояния интерфейса будут рассмотрены в практической работе 1.7.
-*/
-.site-nav__list a:hover {
-  text-decoration: underline;
-}
-
-/*
-  Hero-блок — первый крупный блок страницы.
-  Он визуально отделяется от остальных разделов фоном и отступами.
-*/
-.hero {
-  max-width: 1100px;
-  margin: 0 auto 32px;
-  padding: 32px 20px;
-  background-color: #eef5ff;
-  border-radius: 12px;
-}
-
-/*
-  Общий класс для разделов страницы.
-*/
-.section {
-  max-width: 1100px;
-  margin: 0 auto 32px;
-}
-
-/*
-  Убираем лишний верхний отступ у заголовков разделов.
-*/
-.section h2 {
-  margin-top: 0;
-}
-
-/*
-  Карточка товара — самостоятельный блок.
-  На следующих занятиях карточки будут доработаны и выстроены в сетку.
-*/
-.product-card {
-  margin-bottom: 16px;
-  padding: 16px;
-  border: 1px solid #dddddd;
-  border-radius: 8px;
-  background-color: #ffffff;
-}
-
-/*
-  Убираем лишний верхний отступ у заголовка карточки.
-*/
-.product-card h3 {
-  margin-top: 0;
-}
-
-/*
-  Пока это обычная ссылка, но визуально она оформляется как кнопка.
-*/
-.button {
-  display: inline-block;
-  padding: 10px 16px;
-  color: #ffffff;
-  background-color: #0057b8;
-  text-decoration: none;
-  border-radius: 6px;
-}
-
-/*
-  Простое состояние наведения для кнопки.
-*/
-.button:hover {
-  background-color: #003f86;
-}
-
-/*
-  Дополнительный информационный блок.
-*/
-.aside-info {
-  max-width: 1100px;
-  margin: 0 auto 32px;
-  padding: 16px;
-  border-left: 4px solid #0057b8;
-  background-color: #f7f7f7;
-}
-
-/*
-  Модальное окно.
-  Элемент dialog сам умеет открываться поверх страницы.
-*/
-.order-dialog {
-  width: min(100% - 32px, 560px);
-  padding: 24px;
-  border: none;
-  border-radius: 12px;
-}
-
-/*
-  Затемнение фона за модальным окном.
-*/
-.order-dialog::backdrop {
-  background-color: rgba(0, 0, 0, 0.5);
-}
-
-/*
-  Поле формы.
-  Каждый блок получает нижний отступ.
-*/
-.form-field {
-  margin-bottom: 16px;
-}
-
-/*
-  Подпись поля.
-*/
-.form-field label {
-  display: block;
-  margin-bottom: 6px;
-}
-
-/*
-  Основные поля формы.
-*/
-.form-field input,
-.form-field select,
-.form-field textarea {
-  width: 100%;
-  padding: 10px 12px;
-  border: 1px solid #cccccc;
-  border-radius: 6px;
-  font: inherit;
-}
-
-/*
-  Checkbox не должен занимать всю ширину.
-*/
-.form-field input[type="checkbox"] {
-  width: auto;
-}
-
-/*
-  Подсказка под полем телефона.
-*/
-.form-field small {
-  display: block;
-  margin-top: 4px;
-  color: #666666;
-}
-
-/*
-  Видимый фокус для клавиатурной навигации.
-*/
-.form-field input:focus-visible,
-.form-field select:focus-visible,
-.form-field textarea:focus-visible,
-.form-actions button:focus-visible {
-  outline: 2px solid #0057b8;
-  outline-offset: 2px;
-}
-
-/*
-  Подсветка ошибочных полей.
-  Атрибут aria-invalid будет добавляться через JavaScript.
-*/
-[aria-invalid="true"] {
-  border-color: #b00020;
-}
-
-/*
-  Кнопки формы.
-*/
-.form-actions {
-  display: flex;
-  gap: 12px;
-  margin-top: 20px;
-}
-
-/*
-  Сообщение об успешной отправке.
-*/
-.success-message {
-  max-width: 1100px;
-  margin: 24px auto;
-  padding: 16px;
-  border-left: 4px solid #168a2f;
-  background-color: #eefaf0;
-}
 /* ===================================
    1. Переменные проекта
    =================================== */
@@ -380,6 +30,7 @@ footer {
 
   /* Размеры */
   --container-width: 1100px;
+  --header-height: 96px; /* высота закреплённой шапки */
 }
 
 /* ===================================
@@ -389,30 +40,62 @@ footer {
   box-sizing: border-box;
 }
 
+html,
 body {
+  height: 100%;
   margin: 0;
+}
+
+/* Убираем прокрутку у окна: она уходит во внутренние контейнеры */
+html,
+body {
+  overflow: hidden;
+}
+
+body {
   font-family: Arial, sans-serif;
   line-height: 1.5;
   color: var(--color-text);
   background-color: var(--color-bg);
+
+  /* Flex-колонка на всю высоту экрана */
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
 }
 
-header,
-main,
-footer {
+/* ===================================
+   3. Шапка, основная часть, подвал
+   =================================== */
+
+/* Шапка закреплена сверху и не участвует в прокрутке */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  flex: 0 0 auto;
+  padding: var(--space-md) var(--space-lg);
+  background-color: var(--color-surface);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+}
+
+/* Основная область: здесь идёт горизонтальная и вертикальная прокрутка */
+main {
+  flex: 1 1 auto;
+  overflow: auto;
   padding: var(--space-lg);
 }
 
-header {
-  background-color: var(--color-surface);
-}
-
+/* Подвал: тоже можно листать горизонтально */
 footer {
+  flex: 0 0 auto;
+  overflow-x: auto;
+  padding: var(--space-lg);
   background-color: var(--color-surface);
 }
 
 /* ===================================
-   3. Общие элементы интерфейса
+   4. Общие элементы интерфейса
    =================================== */
 a {
   color: var(--color-primary);
@@ -453,7 +136,44 @@ a:focus-visible {
 }
 
 /* ===================================
-   4. Компоненты страницы
+   5. Шапка сайта (внутренняя разметка)
+   =================================== */
+.site-header {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+}
+
+.site-logo {
+  font-weight: bold;
+  text-decoration: none;
+  color: var(--color-text);
+}
+
+.site-nav__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.site-nav__list a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.site-nav__list a:hover {
+  text-decoration: underline;
+}
+
+/* ===================================
+   6. Компоненты страницы
    =================================== */
 .hero {
   max-width: var(--container-width);
@@ -472,12 +192,13 @@ a:focus-visible {
   margin-top: 0;
 }
 
+/* Карточка товара */
 .product-card {
-  margin-bottom: var(--space-md);
   padding: var(--space-md);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   background-color: var(--color-bg);
+  transition: border-color 0.15s ease;
 }
 
 .product-card:hover {
@@ -488,6 +209,7 @@ a:focus-visible {
   margin-top: 0;
 }
 
+/* Информационный блок */
 .aside-info {
   max-width: var(--container-width);
   margin: 0 auto var(--space-xl);
@@ -497,7 +219,42 @@ a:focus-visible {
 }
 
 /* ===================================
-   5. Форма и модальное окно
+   7. Секция популярных товаров —
+      горизонтальная лента
+   =================================== */
+#popular {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--space-md);
+  overflow-x: auto;
+  max-width: none;
+  margin-left: 0;
+  margin-right: 0;
+  padding-bottom: var(--space-sm);
+  scroll-snap-type: x proximity;
+}
+
+#popular .product-card {
+  flex: 0 0 280px; /* фиксированная ширина карточки */
+  scroll-snap-align: start;
+}
+
+/* Аккуратный скроллбар в ленте (опционально) */
+#popular::-webkit-scrollbar {
+  height: 8px;
+}
+
+#popular::-webkit-scrollbar-thumb {
+  background-color: var(--color-border);
+  border-radius: 4px;
+}
+
+#popular::-webkit-scrollbar-thumb:hover {
+  background-color: var(--color-muted);
+}
+
+/* ===================================
+   8. Форма и модальное окно
    =================================== */
 .order-dialog {
   width: min(100% - 32px, 560px);
@@ -556,6 +313,13 @@ a:focus-visible {
 
 [aria-invalid="true"] {
   border-color: var(--color-danger);
+}
+
+/* Кнопки формы */
+.form-actions {
+  display: flex;
+  gap: var(--space-sm);
+  margin-top: var(--space-lg);
 }
 
 /* Сообщение об успешной отправке */
