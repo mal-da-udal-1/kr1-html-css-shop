@@ -4,6 +4,52 @@ body {
   line-height: 1.5;
 }
 
+html, body {
+  height: 100%;
+  overflow: hidden; /* вся прокрутка уходит во внутренние контейнеры */
+}
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: var(--color-surface);
+  /* при желании можно добавить тень */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+}
+main {
+  overflow-x: auto;
+  overflow-y: auto;
+  height: calc(100vh - var(--header-height));
+  display: flex;
+  flex-direction: column;
+}
+
+footer {
+  overflow-x: auto;
+}
+:root {
+  --header-height: 96px; /* подгоните под реальную высоту */
+}
+#popular {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--space-md);
+  overflow-x: auto;
+  padding-bottom: var(--space-sm);
+  max-width: none; /* снимаем ограничение 1100px, чтобы лента не сжималась */
+}
+
+.product-card {
+  flex: 0 0 280px; /* фиксированная ширина карточки */
+  margin-bottom: 0;
+}
+#popular {
+  max-width: none;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+
 header,
 main,
 footer {
