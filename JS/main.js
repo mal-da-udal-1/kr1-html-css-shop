@@ -85,3 +85,16 @@ window.addEventListener('scroll', () => {
 scrollTopButton.addEventListener('click', () => {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 });
+// --- Кнопка прокрутки наверх ---
+const scrollTopButton = document.getElementById('scroll-top-button');
+
+// Прокрутка идёт внутри <main>, а не у window.
+const scrollContainer = document.querySelector('main');
+
+scrollContainer.addEventListener('scroll', () => {
+  scrollTopButton.classList.toggle('is-visible', scrollContainer.scrollTop > 200);
+});
+
+scrollTopButton.addEventListener('click', () => {
+  scrollContainer.scrollTo({ top: 0, behavior: 'smooth' });
+});
