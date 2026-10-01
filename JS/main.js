@@ -72,3 +72,19 @@ orderForm.addEventListener('submit', (event) => {
   // Закрываем модальное окно.
   orderDialog.close();
 });
+// ===========================================
+// Кнопка «Наверх»
+// ===========================================
+const scrollTopButton = document.getElementById('scroll-top');
+const scrollContainer = document.querySelector('main');
+
+function toggleScrollTopButton() {
+  scrollTopButton.hidden = scrollContainer.scrollTop <= 300;
+}
+
+scrollContainer.addEventListener('scroll', toggleScrollTopButton);
+toggleScrollTopButton();
+
+scrollTopButton.addEventListener('click', () => {
+  scrollContainer.scrollTo({ top: 0, behavior: 'smooth' });
+});
