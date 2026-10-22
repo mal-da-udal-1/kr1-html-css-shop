@@ -38,6 +38,28 @@
 html {
   scroll-behavior: smooth;
 }
+.site-nav__list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-md);
+  padding: 0;
+  margin: var(--space-md) 0 0;
+  list-style: none;
+}
+.site-nav__list a {
+  display: inline-block;
+  padding: var(--space-sm) var(--space-md);
+  color: var(--color-primary);
+  text-decoration: none;
+  border-radius: var(--radius-sm);
+}
+
+.site-nav__list a:hover {
+  color: var(--color-white);
+  background-color: var(--color-primary);
+}
 
 .breadcrumbs {
   max-width: var(--container-width);
