@@ -54,6 +54,10 @@ html {
   content: " / ";
   color: var(--color-muted);
 }
+:target {
+  outline: 2px dashed var(--color-primary);
+  outline-offset: 4px;
+}
 
 body {
   margin: 0;
