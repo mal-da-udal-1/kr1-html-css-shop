@@ -35,6 +35,10 @@
 * {
   box-sizing: border-box;
 }
+html {
+  scroll-behavior: smooth;
+}
+
 .breadcrumbs {
   max-width: var(--container-width);
   margin: 0 auto var(--space-md);
